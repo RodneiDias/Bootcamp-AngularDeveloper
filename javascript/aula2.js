@@ -30,12 +30,15 @@ se o resto da divisão for = 1 o numero é impar
 
 * */
 let numero = 25
-let parImpar = (numero % 2) === 0 ? "par" : "impar"
-
-console.log(parImpar)
 
 if((numero % 2) === 0){
-console.log("numero é par")
+    console.log("numero é par")
 }else {
     console.log("numero é impar")
 }
+
+/*
+resolvendo com ternário
+*/
+    let parImpar = (numero % 2) === 0 ? "par" : "impar"
+    console.log(parImpar)
