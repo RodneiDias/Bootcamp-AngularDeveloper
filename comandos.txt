@@ -1,0 +1,141 @@
+Comandos cmd
+Navegar entre pastas
+   - Entrar em um pastas
+     -cd <nome da pasta>
+   - Voltar um nivel
+     - cd..
+Listar pastas ou arquivos
+   - dir
+
+Criar pasta 
+   - mkdir "<nome da pasta>"
+
+Criar arquivo
+exemplo 
+   - echo hello > hello.txt
+
+Deletar arquivo
+   - del "<nome-do-arquivo>"
+
+Deletar pasta
+   - rmdir "<nome-da-pasta>"
+--------------------------------------------------------------------------------
+
+Entendendo como funiciona por baixo dos panos
+ 
+SHA1 
+ Secure Hash Algorithm (ou Algoritmo de Hash Seguro, em português)
+é gerado um codigo de 40 caracteres com tamanho de 160 bits
+
+BLOB
+ Um blob (objeto binário grande) do Git é o tipo de objeto usado 
+para armazenar o conteúdo de cada arquivo em um repositório
+
+TREE
+ é uma (Arvore) um conjunto de valores de índices apontando para os 
+objetos, juntamente com um modo (tipicamente 100644 para arquivos e 
+100755 para diretórios)
+
+COMMIT
+ Os commits são basicamente o estado em que o projeto se encontra na linha do 
+tempo. Ou seja, a versão do projeto naquele momento em que o commit foi criado
+ Eles apontão para as arvores, parente, autor, menssagem e timestamp.
+
+commit --> tree --> blob
+---------------------------------------------------------------------------------
+
+Configurando 
+
+Gerando chave SSH
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+Copiar a chave publica gerada e colar na pagina do github 
+
+Adicionar sua chave SSH ao ssh-agent
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+-----------------------------------------------------------------------------------
+
+Configurando 
+
+git config --global user.email "<email cadastrado no github>"
+git config --global user.name "<user name cadastrado>"
+
+git config status
+       ou
+git config --list
+------------------------------------------------------------------------------------
+
+Comandos git 
+
+clonar repositorio
+- git clone <https://link-com-o-nome-do-repositório>
+
+criar uma branch
+- git branch <nome-da-branch>
+
+para fazer um push (empurrar) para a nova branch
+- git push -u <local-remoto> <nome-da-branch>
+
+como ver as branch
+- git branch ou git branch --list
+
+Como excluir uma branch
+- git branch -d <nome-da-branch>
+
+para trocar de branch
+- git checkout <nome-da-branch>
+
+Dá todas as informações necessárias sobre a branch atual.
+- git status
+
+para adicionar um único arquivo 
+- git add <arquivo>
+
+para adicionar tudo ao mesmo tempo 
+- git add* <arquivo> 
+- git add -A
+
+para enviar as alterações para o servidor remoto
+- git commit -m "mensagem do commit"
+
+push faz o upload dos seus commits no repositório remoto.
+git push <repositório-remoto> <nome-da-branch>
+
+Entretanto, se a sua branch foi recém-criada, também é preciso fazer o upload da 
+branch com o seguinte comando:
+- git push --set-upstream <repositório-remoto> <nome-da-branch>
+- git push -u origin <nome-da-branch>
+
+Importante: git push somente faz o upload das alterações que já estão em um commit.
+
+para obter as atualizações de um repositório remoto
+git pull <repositório-remoto>
+
+Às vezes, precisamos desfazer as alterações que fizemos. Existem várias maneiras de 
+se desfazer as alterações em nosso espaço de trabalho local ou remotamente (dependendo 
+do que você necessita), mas devemos usar esses comandos com cuidado para evitar 
+exclusões indesejadas.
+
+Uma maneira segura de desfazer nossos commits é usando git revert. Para ver nosso 
+histórico de commits, primeiro, precisamos usar git log -- oneline:
+- git revert <codigo hash do commit>
+
+Git merge, basicamente, integra sua branch com o recurso e todos os seus commits na branch 
+de desenvolvimento (dev) ou na branch principal (master ou main). É importante lembrar que, 
+primeiro, você precisa estar na branch específica na qual você quer fazer o merge de sua 
+branch com o recurso.
+
+Por exemplo, ao querer fazer o merge de sua branch do recurso na branch dev:
+
+Primeiro, troque para a branch dev:
+- git checkout dev
+
+Antes do merge, atualize sua branch dev local:
+- git fetch
+
+Por fim, faça o merge da sua branch do recurso em dev:
+- git merge <nome-da-branch-com-o-recurso>
+
