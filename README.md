@@ -6,3 +6,4 @@
   2. aula 2 - Estruturas condicionais 
   3. aula 3 - Praticando com Variáveis,Operadores e Estruturas Condicionais.
   4. aula 4 - Funções
+  5. aula 5 - Objetos e Classes
