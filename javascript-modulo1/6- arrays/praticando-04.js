@@ -6,9 +6,7 @@ pares contidos no intervalo de 10 a 50;
 let numerosPares = [];
 let cont =10 ;
 
-    while (cont<50) {
-        let resto = cont%2;
-      
+    while (cont<50) {        
         cont = cont + 2;
         numerosPares.push(cont)
     }
